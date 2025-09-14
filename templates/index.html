@@ -10,7 +10,7 @@
     <div class="chat-container">
         <div class="chat-header">
             <h2>SMKN 2 Indramayu AI Assistant</h2>
-            <p>Tanya apa saja tentang sekolah!</p>
+            <button id="new-chat-btn">New Chat</button>
         </div>
         <div class="chat-box" id="chat-box">
             <div class="message bot">
@@ -18,6 +18,7 @@
             </div>
         </div>
         <div class="chat-input-area">
+            <div id="recommended-questions-container"></div>
             <form id="chat-form">
                 <input type="text" id="user-input" placeholder="Ketik pesanmu di sini..." autocomplete="off" required>
                 <button type="submit" id="send-btn">
