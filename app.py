@@ -6,10 +6,10 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 import os
 import re
+from dotenv import load_dotenv
 
 # --- Konfigurasi ---
-if 'GOOGLE_API_KEY' not in os.environ:
-    raise ValueError("Error: GOOGLE_API_KEY environment variable not set.")
+load_dotenv() # Memuat variabel dari file .env
 
 FAISS_INDEX_PATH = "faiss_index"
 
@@ -20,7 +20,7 @@ app = Flask(__name__)
 print("Memuat indeks FAISS dan model...")
 embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 vector_index = FAISS.load_local(FAISS_INDEX_PATH, embeddings, allow_dangerous_deserialization=True)
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.8)
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.8)
 print("✅ Model dan indeks berhasil dimuat.")
 
 
